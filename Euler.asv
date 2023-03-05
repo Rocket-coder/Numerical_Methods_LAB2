@@ -1,0 +1,19 @@
+function [y_e,x_e,n_e] = Euler(f, u0, x0, X, n) %y, x, n
+%Euler method for ordinary differential equations
+%Метод Эйлера для обыкновенных дифференциальных уравнений
+h = (X - x0) / n;
+y(1:n) = 0;
+y(1) = u0;
+x(1:n) = 0;
+x(1) = x0;
+for k = 1:1:n-1
+    y(k+1) = y(k) + h * f(x(k), y(k));
+    x(k+1) = x(k) + h;
+end
+%v = [y; x; n];
+y_e = y(1:end);
+x_e = x(1);
+n_e = n;
+
+end
+
